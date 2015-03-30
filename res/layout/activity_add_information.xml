@@ -1,0 +1,63 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.mycountries_uppgift_2.AddInformation" >
+
+    <TextView
+        android:id="@+id/infoText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:textSize="20sp"  
+        android:text="@string/enter"     
+        />
+
+    <EditText 
+            android:id="@+id/text_field_one"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:singleLine="true"
+    		android:maxLength="12"
+    		android:layout_marginTop="25dp"
+    		android:inputType="textCapWords"
+    		android:imeOptions="actionDone"
+    		android:hint="@string/firstname"
+      />
+    <EditText 
+            android:id="@+id/text_field_two"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:singleLine="true"
+    		android:maxLength="12"
+    		android:layout_marginTop="25dp"
+    		android:inputType="textCapWords"
+    		android:hint="@string/lastname"
+      />
+    <EditText 
+            android:id="@+id/text_field_three"
+    		android:layout_width="match_parent"
+    		android:layout_height="wrap_content"
+    		android:singleLine="true"
+    		android:maxLength="10"
+    		android:layout_marginTop="25dp"
+    		android:inputType="number"
+    		android:hint="@string/phonenumber"
+      />
+         <Button
+        android:id="@+id/buttonOk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="buttonOk"
+        android:text="@string/buttonOk" />
+<ListView
+             android:id="@+id/list"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content" />
+       
+         
+</LinearLayout>

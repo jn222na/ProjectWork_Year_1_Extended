@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.mycountries_uppgift_2.MainActivity"
+    >
+
+
+    
+    <item android:id="@+id/sortFirstnameAsc"
+    android:orderInCategory="100"
+        android:title="@string/action_SortFirstnameAsc"/>
+    
+<item android:id="@+id/sortFirstnameDesc"
+    android:orderInCategory="100"
+        android:title="@string/action_SortFirstnameDesc"/>
+	<item	
+        android:id="@+id/sortLastnameAsc"
+        android:orderInCategory="100"
+        android:title="@string/action_SortLastnameAsc"/>
+    <item
+        android:id="@+id/sortLastnameDesc"
+        android:orderInCategory="100"
+        android:title="@string/action_SortLastnameDesc"
+       />
+        <item
+        android:id="@+id/addNewMember"
+        android:orderInCategory="100"
+        android:title="@string/action_AddMember"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_action_new"
+        />
+          <item
+        android:id="@+id/settings"
+        android:orderInCategory="100"
+        android:title="@string/action_settings"
+        />
+        
+    
+</menu>
