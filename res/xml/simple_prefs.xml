@@ -13,7 +13,7 @@
         android:entries="@array/textColors"
         android:entryValues="@array/textColorEntries"
         android:key="prefSetTextColor"
-        android:summary="Set the text color."
+        android:summary="Set the color of the Listheader."
         android:title="@string/textDisplayText" />
 
 </PreferenceScreen>

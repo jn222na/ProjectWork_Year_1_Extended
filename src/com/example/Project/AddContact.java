@@ -58,10 +58,10 @@ public class AddContact extends ActionBarActivity {
 		lastnameView = (EditText) findViewById(R.id.text_field_two);
 		numberView = (EditText) findViewById(R.id.text_field_three);
 		final boolean match1 = firstnameView.getText().toString()
-				.matches("[a-öA-Ö_ ]+$");
+				.matches("[a-öA-Ö_]+$");
 		
 		final boolean match2 = lastnameView.getText().toString()
-				.matches("[a-öA-Ö_ ]+$");
+				.matches("[a-öA-Ö_]+$");
 		final boolean match3 = numberView.getText().toString()
 				.matches("[0-9]+$");
 		String firstnameViewString = firstnameView.getText().toString().trim();

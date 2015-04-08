@@ -9,7 +9,6 @@ import com.example.DAL.GetSetters;
 import android.support.v7.app.ActionBarActivity;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -26,11 +25,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
-import android.view.View.OnClickListener;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -182,10 +179,10 @@ public class Main extends ActionBarActivity {
 							phonenumberValidation = phonenumber.getText().toString()
 									.trim();
 							final boolean match1 = firstname.getText().toString()
-									.matches("[a-öA-Ö_ ]+$");
+									.matches("[a-öA-Ö_]+$");
 							final boolean match2 = lastname.getText().toString()
-									.matches("[a-öA-Ö_ ]+$");
-						//TODO
+									.matches("[a-öA-Ö_]+$");
+							
 							final boolean match3 = phonenumber.getText().toString()
 									.matches("[0-9]+$");
 
@@ -356,6 +353,7 @@ String getTextColor = prefs.getString("prefSetTextColor", "0");
 
 	if(getBg.equals("1")){
 		main.setBackgroundColor(Color.parseColor("#0BB5FF"));
+	
 	}
 	else if(getBg.equals("2")){
 		main.setBackgroundColor(Color.parseColor("#b20000"));	
@@ -371,6 +369,7 @@ String getTextColor = prefs.getString("prefSetTextColor", "0");
 		getText2.setTextColor(Color.BLUE);
 		getText3.setTextColor(Color.BLUE);
 		getSeparateLines.setBackgroundColor(Color.BLUE);
+		
 		
 	}
 	else if(getTextColor.equals("2")){

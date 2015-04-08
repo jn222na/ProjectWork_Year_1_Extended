@@ -26,7 +26,7 @@
     <string name="title_activity_preference_screen">PreferenceScreen</string>
     <string name="title_activity_preference">PreferenceActivity</string>
 	<string name="backgroundColorDisplayText">Change BackgroundColor</string>
-	<string name="textDisplayText">Change the text of the Listheader</string>
+	<string name="textDisplayText">Change the color of the Listheader</string>
 	<string name="phonenumber">Phonenumber</string>
 	<string name="send_to">Choose an application to send</string>
     <color name="color">#ffff5555</color>
