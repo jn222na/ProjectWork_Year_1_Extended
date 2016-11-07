@@ -6,7 +6,7 @@ import com.example.DAL.CRUD;
 import com.example.DAL.GetSetters;
 
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.Activity;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.annotation.SuppressLint;
@@ -34,7 +34,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Main extends ActionBarActivity {
+public class Main extends Activity {
 
 	private List<GetSetters> values;
 	public final Context context = this;
@@ -65,14 +65,7 @@ public class Main extends ActionBarActivity {
 		//Used to delete the database, cause there is no interface for the database so you are working blindly
 //		context.deleteDatabase(DBConnection.DATABASE_NAME);
 		values = datasource.getAllTasks();
-		
-//		TextView t = (TextView) findViewById(R.id.list);
-//		for (int i = 0; i < values.size(); i++) {
-//			textview = values.get(i).getFirstname();
-//			t.append(textview +"\n");
-//			System.out.println(values.get(i).getFirstname());
-//		}
-		
+				
 		if(i != 0){
 			SortDatabase(i);
 		}
@@ -242,7 +235,7 @@ public class Main extends ActionBarActivity {
 			
 			TelephonyManager telephonyManager = (TelephonyManager) this.getSystemService(Context.TELEPHONY_SERVICE);
 			telephonyManager.listen(phoneListener,PhoneStateListener.LISTEN_CALL_STATE);	
-			Intent callIntent = new Intent(Intent.ACTION_CALL);
+			Intent callIntent = new Intent(Intent.ACTION_DIAL);
 			callIntent.setData(Uri.parse("tel:"+ phoneNumber));
 			startActivity(callIntent);
 			
