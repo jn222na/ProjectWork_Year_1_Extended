@@ -94,10 +94,10 @@ public class Main extends Activity {
 		if (v.getId() == R.id.list) {
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 			menu.setHeaderTitle(values.get(info.position).toString());
-			menu.add(0, 0, 0, "Delete member");
-			menu.add(1, 1, 1, "Update member");
-			menu.add(2, 2, 2, "Call member");
-			menu.add(3, 3, 3, "Send selected phonenumber");
+			menu.add(0, 0, 0, "Delete");
+			menu.add(1, 1, 1, "Update");
+			menu.add(2, 2, 2, "Call");
+			menu.add(3, 3, 3, "Send phonenumber");
 		}
 
 	}
@@ -272,26 +272,20 @@ public class Main extends Activity {
 		}
 			//Check which actionbarSelection that has been chosen
 		if(id == R.id.sortFirstnameAsc || id == R.id.sortFirstnameDesc || id == R.id.sortLastnameAsc || id == R.id.sortLastnameDesc || id == R.id.settings){
-		switch (id) {
-		case R.id.sortFirstnameAsc:
+		if (id == R.id.sortFirstnameAsc) {
 			i=1;
 			SortDatabase(i);
-			break;
-		case R.id.sortFirstnameDesc:
+		} else if (id == R.id.sortFirstnameDesc) {
 			i=2;
 			SortDatabase(i);
-			break;
-		case R.id.sortLastnameAsc:
+		} else if (id == R.id.sortLastnameAsc) {
 			i=3;
 			SortDatabase(i);
-			break;
-		case R.id.sortLastnameDesc:
+		} else if (id == R.id.sortLastnameDesc) {
 			i=4;
 			SortDatabase(i);
-			break;
-		case R.id.settings:
+		} else if (id == R.id.settings) {
 			startActivity(new Intent(this, SimplePreferenceActivity.class));
-			break;
 		}
 		//Saves preferences
 		  SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);

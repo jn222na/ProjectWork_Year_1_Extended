@@ -1,39 +1,34 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.mycountries_uppgift_2.MainActivity"
-    >
+    tools:context="com.example.mycountries_uppgift_2.MainActivity" >
 
-
-    
-    <item android:id="@+id/sortFirstnameAsc"
-    android:orderInCategory="100"
-        android:title="@string/action_SortFirstnameAsc"/>
-    
-<item android:id="@+id/sortFirstnameDesc"
-    android:orderInCategory="100"
-        android:title="@string/action_SortFirstnameDesc"/>
-	<item	
-        android:id="@+id/sortLastnameAsc"
-        android:orderInCategory="100"
-        android:title="@string/action_SortLastnameAsc"/>
     <item
-        android:id="@+id/sortLastnameDesc"
-        android:orderInCategory="100"
-        android:title="@string/action_SortLastnameDesc"
-       />
-        <item
         android:id="@+id/addNewMember"
-        android:orderInCategory="100"
-        android:title="@string/action_AddMember"
-        
-        android:icon="@drawable/ic_action_new"
-        />
-          <item
+        android:title="@string/action_AddMember"/>
+    <item
         android:id="@+id/settings"
-        android:orderInCategory="100"
-        android:title="@string/action_settings"
-        />
-        
-    
+        android:title="@string/action_settings"/>
+    <item
+        android:id="@+id/file"
+        android:title="@string/sort">
+
+        <!-- "file" submenu -->
+        <menu android:id="@+id/actionbarMenuId" 
+            >
+            <item
+                android:id="@+id/sortFirstnameAsc"
+                android:title="@string/action_SortFirstnameAsc"/>
+            <item
+                android:id="@+id/sortFirstnameDesc"
+                android:title="@string/action_SortFirstnameDesc"/>
+            <item
+                android:id="@+id/sortLastnameAsc"
+                android:title="@string/action_SortLastnameAsc"/>
+            <item
+                android:id="@+id/sortLastnameDesc"
+                android:title="@string/action_SortLastnameDesc"/>
+        </menu>
+    </item>
+   <item android:title="item"  android:name="android:actionMenuTextColor">#FF000</item>
 </menu>

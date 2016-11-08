@@ -3,56 +3,49 @@
     android:id="@+id/layout_root"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:orientation="vertical" 
-    android:padding="10dp">
-    
-    
- 
- 
+    android:orientation="vertical"
+    android:padding="10dp" >
 
- <TextView 
-    	    android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:text="@string/firstname"
-    		android:textSize="20sp"
-     />
     <TextView
-    		android:id="@+id/text_field_one"
-    		android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:minWidth="200dp"
-    		android:singleLine="true"
-    		android:maxLength="12"
-    		android:hint="@string/firstname"
-    		android:focusable="true">
-       		</TextView>
-       		
-     <TextView 
-    	    android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:text="@string/lastname"
-    		android:textSize="20sp"
-     />
-    	<TextView
-    		android:id="@+id/text_field_two"
-    		android:layout_width="wrap_content"
-    		android:layout_height="wrap_content"
-    		android:minWidth="200dp"
-    		android:singleLine="true"
-    		android:maxLength="12"
-    		android:hint="@string/lastname">
-    		
-    		</TextView>
-    		 <EditText 
-            android:id="@+id/text_field_three"
-    		android:layout_width="match_parent"
-    		android:layout_height="wrap_content"
-    		android:singleLine="true"
-    		android:maxLength="10"
-    		android:inputType="number"
-    		android:hint="@string/phonenumber"
-      />
-    
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/firstname"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_field_one"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:hint="@string/firstname"
+        android:maxLength="12"
+        android:minWidth="200dp"
+        android:singleLine="true" >
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lastname"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/text_field_two"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/lastname"
+        android:maxLength="12"
+        android:minWidth="200dp"
+        android:singleLine="true" >
+    </TextView>
+
+    <EditText
+        android:id="@+id/text_field_three"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/phonenumber"
+        android:inputType="number"
+        android:maxLength="10"
+        android:singleLine="true" />
+
 </LinearLayout>
-    
- 

@@ -18,10 +18,11 @@
     <string name="tViewCountry">placeholderCountry</string>
     <string name="yearPrint"></string>
     <string name="countryPrint"></string>
-    <string name="action_SortFirstnameAsc">Sort firstname by descending</string>
-    <string name="action_SortFirstnameDesc">Sort firstname by ascending</string>
-    <string name="action_SortLastnameAsc">Sort lastname by descending</string>
-    <string name="action_SortLastnameDesc">Sort lastname by ascending</string>
+    <string name="sort">Sort</string>
+    <string name="action_SortFirstnameAsc">Firstname - Descending</string>
+    <string name="action_SortFirstnameDesc">Firstname - Ascending</string>
+    <string name="action_SortLastnameAsc">Lastname - Descending</string>
+    <string name="action_SortLastnameDesc">Lastname - Ascending</string>
     <string name="action_SaveSortedOrder">Keep sorted until next time</string>
     <string name="title_activity_preference_screen">PreferenceScreen</string>
     <string name="title_activity_preference">PreferenceActivity</string>
