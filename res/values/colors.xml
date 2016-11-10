@@ -4,4 +4,5 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="skyBlue">#87CEEB</color>
+    <color name="foreground_material_light">#450000</color>
 </resources>

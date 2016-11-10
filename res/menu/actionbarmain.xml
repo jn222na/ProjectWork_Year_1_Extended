@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.example.mycountries_uppgift_2.MainActivity" >
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.mycountries_uppgift_2.MainActivity">
 
     <item
         android:id="@+id/addNewMember"
@@ -9,26 +9,29 @@
     <item
         android:id="@+id/settings"
         android:title="@string/action_settings"/>
+
     <item
         android:id="@+id/file"
         android:title="@string/sort">
-
         <!-- "file" submenu -->
-        <menu android:id="@+id/actionbarMenuId" 
+        <menu android:id="@+id/actionbarMenuId"
             >
             <item
                 android:id="@+id/sortFirstnameAsc"
+                android:orderInCategory="1"
                 android:title="@string/action_SortFirstnameAsc"/>
             <item
                 android:id="@+id/sortFirstnameDesc"
+                android:orderInCategory="2"
                 android:title="@string/action_SortFirstnameDesc"/>
             <item
                 android:id="@+id/sortLastnameAsc"
+                android:orderInCategory="3"
                 android:title="@string/action_SortLastnameAsc"/>
             <item
                 android:id="@+id/sortLastnameDesc"
+                android:orderInCategory="4"
                 android:title="@string/action_SortLastnameDesc"/>
         </menu>
     </item>
-   <item android:title="item"  android:name="android:actionMenuTextColor">#FF000</item>
 </menu>

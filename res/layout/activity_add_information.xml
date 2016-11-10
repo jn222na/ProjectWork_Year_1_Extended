@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:id="@+id/activity_add_information"
     tools:context="com.example.mycountries_uppgift_2.AddInformation" >
 
     <TextView
@@ -24,8 +25,7 @@
         android:hint="@string/firstname"
         android:imeOptions="actionDone"
         android:inputType="textCapWords"
-        android:maxLength="12"
-        android:singleLine="true" />
+        android:maxLength="12" />
 
     <EditText
         android:id="@+id/text_field_two"
@@ -34,8 +34,7 @@
         android:layout_marginTop="25dp"
         android:hint="@string/lastname"
         android:inputType="textCapWords"
-        android:maxLength="12"
-        android:singleLine="true" />
+        android:maxLength="12" />
 
     <EditText
         android:id="@+id/text_field_three"
@@ -44,8 +43,7 @@
         android:layout_marginTop="25dp"
         android:hint="@string/phonenumber"
         android:inputType="number"
-        android:maxLength="10"
-        android:singleLine="true" />
+        android:maxLength="10" />
 
     <Button
         android:id="@+id/buttonOk"

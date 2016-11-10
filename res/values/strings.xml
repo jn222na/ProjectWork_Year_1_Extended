@@ -19,10 +19,10 @@
     <string name="yearPrint"></string>
     <string name="countryPrint"></string>
     <string name="sort">Sort</string>
-    <string name="action_SortFirstnameAsc">Firstname - Descending</string>
-    <string name="action_SortFirstnameDesc">Firstname - Ascending</string>
-    <string name="action_SortLastnameAsc">Lastname - Descending</string>
-    <string name="action_SortLastnameDesc">Lastname - Ascending</string>
+    <string name="action_SortFirstnameAsc">Firstname - Ascending</string>
+    <string name="action_SortFirstnameDesc">Firstname - Descending</string>
+    <string name="action_SortLastnameAsc">Lastname - Ascending</string>
+    <string name="action_SortLastnameDesc">Lastname - Descending</string>
     <string name="action_SaveSortedOrder">Keep sorted until next time</string>
     <string name="title_activity_preference_screen">PreferenceScreen</string>
     <string name="title_activity_preference">PreferenceActivity</string>
