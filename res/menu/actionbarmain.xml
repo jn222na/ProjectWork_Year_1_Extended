@@ -17,19 +17,19 @@
         <menu android:id="@+id/actionbarMenuId"
             >
             <item
-                android:id="@+id/sortFirstnameAsc"
+                android:id="@+id/ASCfirstname"
                 android:orderInCategory="1"
                 android:title="@string/action_SortFirstnameAsc"/>
             <item
-                android:id="@+id/sortFirstnameDesc"
+                android:id="@+id/DESCfirstname"
                 android:orderInCategory="2"
                 android:title="@string/action_SortFirstnameDesc"/>
             <item
-                android:id="@+id/sortLastnameAsc"
+                android:id="@+id/ASCLastname"
                 android:orderInCategory="3"
                 android:title="@string/action_SortLastnameAsc"/>
             <item
-                android:id="@+id/sortLastnameDesc"
+                android:id="@+id/DESCLastname"
                 android:orderInCategory="4"
                 android:title="@string/action_SortLastnameDesc"/>
         </menu>

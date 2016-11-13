@@ -55,7 +55,7 @@ public class AddContact extends Activity {
     public void buttonOk(View view) {
         manageContacts = new ManageContacts();
         final LinearLayout view_add_information = (LinearLayout) findViewById(R.id.activity_add_information);
-        if(manageContacts.createOrUpdate(datasource,null, view_add_information, this.context)){
+        if(manageContacts.createOrUpdateContact(datasource, null, view_add_information, this.context)) {
             Intent intent = new Intent(this, Main.class);
             this.startActivityForResult(intent, 1);
             finish();

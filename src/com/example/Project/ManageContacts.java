@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class ManageContacts {
 
 
-    public boolean createOrUpdate(CRUD datasource, GetSetters task, View view, final Context context) {
+    public boolean createOrUpdateContact(CRUD datasource, GetSetters task, View view, final Context context) {
 
         //Get all layouts in Listheader.xml
         final ArrayList<TextView> myEditTextList = new ArrayList<TextView>();

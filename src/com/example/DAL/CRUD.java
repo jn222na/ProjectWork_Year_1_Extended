@@ -1,22 +1,25 @@
 package com.example.DAL;
 
+import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.example.Project.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class CRUD {
+public class CRUD extends Activity {
 
     // Database fields
     private SQLiteDatabase database;
     private DBConnection dbHelper;
     private static String[] allColumns = {DBConnection.COLUMN_ID,
             DBConnection.COLUMN_FIRSTNAME, DBConnection.COLUMN_LASTNAME, DBConnection.COLUMN_PHONENUMBER};
-
+    private static final String PREFS_NAME = "MyPrefsFile";
 
     public CRUD(Context context) {
         dbHelper = new DBConnection(context);
@@ -124,26 +127,23 @@ public class CRUD {
         List<GetSetters> tasks = new ArrayList<GetSetters>();
 
         switch (i) {
-            case 1:
+            case R.id.ASCfirstname:
                 Cursor firstnameAsc = database.rawQuery("SELECT * FROM " + DBConnection.TASKS_TABLE_NAME + " ORDER BY " + DBConnection.COLUMN_FIRSTNAME + " ASC", new String[]{});
                 tasks = printAscDesc(firstnameAsc);
                 return tasks;
-            case 2:
+            case R.id.DESCfirstname:
                 Cursor firstnameDesc = database.rawQuery("SELECT * FROM " + DBConnection.TASKS_TABLE_NAME + " ORDER BY " + DBConnection.COLUMN_FIRSTNAME + " DESC", new String[]{});
                 tasks = printAscDesc(firstnameDesc);
                 return tasks;
-            case 3:
+            case R.id.ASCLastname:
                 Cursor lastnameAsc = database.rawQuery("SELECT * FROM " + DBConnection.TASKS_TABLE_NAME + " ORDER BY " + DBConnection.COLUMN_LASTNAME + " ASC", new String[]{});
                 tasks = printAscDesc(lastnameAsc);
                 return tasks;
-            case 4:
+            case R.id.DESCLastname:
                 Cursor lastnameDesc = database.rawQuery("SELECT * FROM " + DBConnection.TASKS_TABLE_NAME + " ORDER BY " + DBConnection.COLUMN_LASTNAME + " DESC", new String[]{});
                 tasks = printAscDesc(lastnameDesc);
                 return tasks;
-            default:
-                break;
         }
         return null;
     }
 }
-

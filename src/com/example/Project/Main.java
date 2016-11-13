@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -62,18 +63,12 @@ public class Main extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.listheader);
 
-
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        i = settings.getInt("sortType", 0);
-
         datasource = new CRUD(this);
         datasource.open();
         //Used to delete the database, cause there is no interface for the database so you are working blindly
-        //context.deleteDatabase(DBConnection.DATABASE_NAME);
+//        context.deleteDatabase(DBConnection.DATABASE_NAME);
         values = datasource.getAllTasks();
-        if(i != 0) {
-            SortDatabase(i);
-        }
+        initializePreferences();
         datasource.close();
         list = (ListView) findViewById(R.id.list);
         listAdapter = new ArrayAdapter<GetSetters>(context,
@@ -84,6 +79,14 @@ public class Main extends Activity {
         addContact = new ManageContacts();
     }
 
+    public void initializePreferences() {
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+        i = settings.getInt("sortType", 0);
+        if(i != 0) {
+            values = datasource.sortFirstAndLastname(i);
+        }
+    }
 
     // To update the list directly after update/add/edit
     public void updateList() {
@@ -148,28 +151,31 @@ public class Main extends Activity {
             // create alert dialog
             final AlertDialog alertDialog = alertDialogBuilder.create();
             //Make the keyboard popup at the start of the alertbuilder
-            alertDialog.getWindow().setSoftInputMode(
-                    WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
-            alertDialog.show();
-            alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
-                    .setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            // Validation
-                            datasource.open();
-                            if(addContact.createOrUpdate(datasource, task, promptsView, context)) {
-                                updateList();
-                                listAdapter.notifyDataSetChanged();
-                                alertDialog.cancel();
+            try {
+                alertDialog.getWindow().setSoftInputMode(
+                        WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
+                alertDialog.show();
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                        .setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                // Validation
+                                datasource.open();
+                                if(addContact.createOrUpdateContact(datasource, task, promptsView, context)) {
+                                    updateList();
+                                    listAdapter.notifyDataSetChanged();
+                                    alertDialog.cancel();
+                                }
+                                datasource.close();
                             }
-                            datasource.close();
+                        });
+            } catch (NullPointerException e) {
+                Log.d("SoftInputMode Error", e.getMessage());
+            }
 
-                        }
-                    });
         }
 
         if(item.getItemId() == 2) {
-
             String phoneNumber = task.getPhonenumber();
             PhoneCallListener phoneListener = new PhoneCallListener(context);
 
@@ -205,7 +211,6 @@ public class Main extends Activity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
-        int orderId = item.getOrder();
         if(id == R.id.addNewMember) {
             Intent intent = new Intent(this, AddContact.class);
             this.startActivityForResult(intent, 1);
@@ -213,56 +218,32 @@ public class Main extends Activity {
         }
 
         //Check which actionbarSelection that has been chosen
-        if(id == R.id.sortFirstnameAsc || id == R.id.sortFirstnameDesc || id == R.id.sortLastnameAsc || id == R.id.sortLastnameDesc || id == R.id.settings) {
-            if(id == R.id.sortFirstnameAsc)
-                SortDatabase(orderId);
-            else if(id == R.id.sortFirstnameDesc)
-                SortDatabase(orderId);
-            else if(id == R.id.sortLastnameAsc)
-                SortDatabase(orderId);
-            else if(id == R.id.sortLastnameDesc)
-                SortDatabase(orderId);
-            else if(id == R.id.settings)
+        if(id == R.id.ASCfirstname || id == R.id.DESCfirstname || id == R.id.ASCLastname || id == R.id.DESCLastname || id == R.id.settings) {
+            sortDatabase(item);
+            if(id == R.id.settings)
                 startActivity(new Intent(this, SimplePreferenceActivity.class));
-
-            //Saves preferences
-            SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-            SharedPreferences.Editor editor = settings.edit();
-            editor.putInt("sortType", i);
-
-            // Commit the edits!
-            editor.commit();
-
 
             listAdapter = new ArrayAdapter<GetSetters>(this,
                     android.R.layout.simple_list_item_1, values);
             list.setAdapter(listAdapter);
             registerForContextMenu(list);
-
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void SortDatabase(int id) {
+    private void sortDatabase(MenuItem id) {
         //Sends the id to the corresponding sort function
         datasource.open();
-        switch (id) {
-            case 1:
-                values = datasource.sortFirstAndLastname(id);
-                break;
-            case 2:
-                values = datasource.sortFirstAndLastname(id);
-                break;
-            case 3:
-                values = datasource.sortFirstAndLastname(id);
-                break;
-            case 4:
-                values = datasource.sortFirstAndLastname(id);
-                break;
-            default:
-                datasource.close();
-        }
+        values = datasource.sortFirstAndLastname(id.getItemId());
+        datasource.close();
 
+        //Saves preferences
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("sortType", id.getItemId());
+
+        // Commit the edits!
+        editor.apply();
     }
 
     @Override
@@ -274,29 +255,8 @@ public class Main extends Activity {
         String getBg = prefs.getString("prefSetBackgroundColor", "0");
         String getTextColor = prefs.getString("prefSetTextColor", "0");
 
-        if(getBg.equals("1"))
-            main.setBackgroundColor(Color.parseColor("#0BB5FF"));
-        else if(getBg.equals("2"))
-            main.setBackgroundColor(Color.parseColor("#ff6b6b"));
-        else if(getBg.equals("3"))
-            main.setBackgroundColor(Color.parseColor("#94fc9d"));
-        else if(getBg.equals("4"))
-            main.setBackgroundColor(Color.parseColor("#FFFFFF"));
-
-        if(getTextColor.equals("1"))
-            setColorOfBackground(Color.parseColor("#56beff"));
-
-        else if(getTextColor.equals("2"))
-            setColorOfBackground(Color.parseColor("#fc9494"));
-
-        else if(getTextColor.equals("3"))
-            setColorOfBackground(Color.parseColor("#94fc9d"));
-
-        else if(getTextColor.equals("4"))
-            setColorOfBackground(Color.parseColor("#000000"));
-
-        else if(getTextColor.equals("5"))
-            setColorOfBackground(Color.parseColor("#FFFFFF"));
+        main.setBackgroundColor(Color.parseColor("#" + getBg));
+        setColorOfBackground(Color.parseColor("#" + getTextColor));
 
         super.onWindowFocusChanged(hasFocus);
     }

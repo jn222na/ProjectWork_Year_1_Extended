@@ -16,6 +16,7 @@ public class SimplePreferenceActivity extends PreferenceActivity {
 
     @SuppressLint("Override")
     protected boolean isValidFragment(String fragmentName) {
+
         return SimplePreferenceFragment.class.getName().equals(fragmentName);
     }
 
@@ -28,9 +29,8 @@ public class SimplePreferenceActivity extends PreferenceActivity {
 
             addPreferencesFromResource(R.xml.simple_prefs);
         }
-
-
     }
+
 }
 
 
