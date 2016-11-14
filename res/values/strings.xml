@@ -5,7 +5,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
-
+    
     <string name="title_activity_country">Country</string>
     <string name="title_activity_addInformation">Add Member</string>
     <string name="action_AddMember">Add member</string>
@@ -16,46 +16,48 @@
     <string name="buttonOk">Done</string>
     <string name="tViewYear">placeholder</string>
     <string name="tViewCountry">placeholderCountry</string>
+    <string name="yearPrint"></string>
+    <string name="countryPrint"></string>
     <string name="sort">Sort</string>
-    <string name="action_SortFirstnameAsc">Firstname - Ascending</string>
-    <string name="action_SortFirstnameDesc">Firstname - Descending</string>
-    <string name="action_SortLastnameAsc">Lastname - Ascending</string>
-    <string name="action_SortLastnameDesc">Lastname - Descending</string>
+    <string name="action_SortFirstnameAsc">Firstname - Descending</string>
+    <string name="action_SortFirstnameDesc">Firstname - Ascending</string>
+    <string name="action_SortLastnameAsc">Lastname - Descending</string>
+    <string name="action_SortLastnameDesc">Lastname - Ascending</string>
     <string name="action_SaveSortedOrder">Keep sorted until next time</string>
     <string name="title_activity_preference_screen">PreferenceScreen</string>
     <string name="title_activity_preference">PreferenceActivity</string>
-    <string name="backgroundColorDisplayText">Change BackgroundColor</string>
-    <string name="textDisplayText">Change the color of the Listheader</string>
-    <string name="phonenumber">Phonenumber</string>
-    <string name="send_to">Choose an application to send</string>
+	<string name="backgroundColorDisplayText">Change BackgroundColor</string>
+	<string name="textDisplayText">Change the color of the Listheader</string>
+	<string name="phonenumber">Phonenumber</string>
+	<string name="send_to">Choose an application to send</string>
     <color name="color">#ffff5555</color>
-
+    
     <!-- Preferences -->
     <string-array name="backgroundColors">
-        <item name="1">Blue</item>
-        <item name="2">Red</item>
-        <item name="3">Green</item>
-        <item name="4">White</item>
-    </string-array>
-    <string-array name="backgroundColorEntries">
-        <item name="1">0BB5FF</item>
-        <item name="2">ff6b6b</item>
-        <item name="3">94fc9d</item>
-        <item name="4">FFFFFF</item>
-    </string-array>
-    <string-array name="textColors">
-        <item name="1">Blue</item>
-        <item name="2">Red</item>
-        <item name="3">Green</item>
-        <item name="4">Black</item>
-        <item name="5">White</item>
-    </string-array>
-    <string-array name="textColorEntries">
-        <item name="1">56beff</item>
-        <item name="2">fc9494</item>
-        <item name="3">94fc9d</item>
-        <item name="4">000000</item>
-        <item name="5">FFFFFF</item>
-    </string-array>
-
+	    <item  name="1">Blue</item>
+	    <item  name="2">Red</item>
+	    <item  name="3">Green</item>
+	    <item  name="4">White</item>
+	</string-array>
+	<string-array name="backgroundColorEntries">
+	    <item  name="1">1</item>
+	    <item  name="2">2</item>
+	    <item  name="3">3</item>
+	    <item  name="4">4</item>
+	</string-array>
+	<string-array name="textColors">
+	    <item  name="1">Blue</item>
+	    <item  name="2">Red</item>
+	    <item  name="3">Green</item>
+	    <item  name="4">Black</item>
+	    <item  name="5">White</item>
+	</string-array>
+	<string-array name="textColorEntries">
+	    <item  name="1">1</item>
+	    <item  name="2">2</item>
+	    <item  name="3">3</item>
+	    <item  name="4">4</item>
+	    <item  name="5">5</item>
+	</string-array>
+	
 </resources>

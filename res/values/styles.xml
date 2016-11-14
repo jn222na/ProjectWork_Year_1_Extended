@@ -1,17 +1,18 @@
 <resources>
 
-    <style name="myTheme" parent="android:Theme.Holo.Light.DarkActionBar">
-        <item name="colorPrimary">@color/material_deep_teal_200</item>
-        <item name="colorPrimaryDark">@color/highlighted_text_material_dark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:colorBackground">@color/background_material_light</item>
-        <item name="android:textColor">@color/colorPrimary</item>
-        <item name="android:colorForeground">@color/foreground_material_light</item>
-        <item name="android:itemBackground">@color/skyBlue</item>
-    </style>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
 
-    <style name="PreferencesTheme">
-        <item name="android:background">#A4A4A4</item>
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- To change the popup menu and app text color  -->
+        <item name="android:textColor">@color/colorPrimary</item>
+
+        <!-- To change the background of options menu-->
+        <item name="android:itemBackground">@color/skyBlue</item>
     </style>
 
 </resources>
