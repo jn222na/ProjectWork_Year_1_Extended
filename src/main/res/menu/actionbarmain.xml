@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="com.example.mycountries_uppgift_2.MainActivity">
+
+    <item
+        android:id="@+id/addNewMember"
+        android:title="@string/action_AddMember"/>
+    <item
+        android:id="@+id/settings"
+        android:title="@string/action_settings"/>
+
+    <item
+        android:id="@+id/sortMenu"
+        android:title="@string/sort">
+        <!-- "file" submenu -->
+        <menu android:id="@+id/actionbarMenuId"
+            >
+            <item
+                android:id="@+id/ASCfirstname"
+                android:orderInCategory="1"
+                android:title="@string/action_SortFirstnameAsc"/>
+            <item
+                android:id="@+id/DESCfirstname"
+                android:orderInCategory="2"
+                android:title="@string/action_SortFirstnameDesc"/>
+            <item
+                android:id="@+id/ASCLastname"
+                android:orderInCategory="3"
+                android:title="@string/action_SortLastnameAsc"/>
+            <item
+                android:id="@+id/DESCLastname"
+                android:orderInCategory="4"
+                android:title="@string/action_SortLastnameDesc"/>
+        </menu>
+    </item>
+</menu>
