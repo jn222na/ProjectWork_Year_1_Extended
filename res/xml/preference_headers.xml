@@ -5,6 +5,5 @@
    		android:title="Colors"
    		android:summary="Change some colors" 
    />
-    
 
 </preference-headers>

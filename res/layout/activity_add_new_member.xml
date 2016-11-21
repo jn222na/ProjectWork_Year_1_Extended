@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:id="@+id/activity_add_information"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/lightGreen"
+        android:minHeight="250dp"
+        android:theme="@style/myTheme"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_AddMember"
+            android:textSize="20sp"
+            android:textColor="#000000"/>
+    </android.support.v7.widget.Toolbar>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:background="@drawable/toolbar_dropshadow"/>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:layout_margin="16dp"-->
+        <!--android:orientation="vertical">-->
+
+        <EditText
+            android:id="@+id/text_field_one"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:hint="@string/firstname"
+            android:imeOptions="actionDone"
+            android:inputType="textCapWords"
+            android:maxLength="12"/>
+
+        <EditText
+            android:id="@+id/text_field_two"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:hint="@string/lastname"
+            android:inputType="textCapWords"
+            android:maxLength="12"/>
+
+        <EditText
+            android:id="@+id/text_field_three"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:hint="@string/phonenumber"
+            android:inputType="number"
+            android:maxLength="10"/>
+
+        <Button
+            android:id="@+id/buttonOk"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:onClick="buttonOk"
+            android:text="@string/buttonOk"
+            android:background="@color/lightGreen"/>
+
+    <!--</LinearLayout>-->
+</LinearLayout>

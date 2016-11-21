@@ -17,14 +17,20 @@ import java.util.ArrayList;
  * Created by Joakim on 09/11/2016.
  */
 
-public class ManageContacts {
+class ManageContacts {
 
+    private Context context;
 
-    public boolean createOrUpdateContact(CRUD datasource, GetSetters task, View view, final Context context) {
+    ManageContacts(Context context) {
+        this.context = context;
+    }
+
+    boolean createOrUpdateContact(CRUD datasource, GetSetters task, View view) {
 
         //Get all layouts in Listheader.xml
         final ArrayList<TextView> myEditTextList = new ArrayList<TextView>();
         final LinearLayout promtsViewLayout = (LinearLayout) view;
+
         for (int i = 0; i < promtsViewLayout.getChildCount(); i++) {
             if(promtsViewLayout.getChildAt(i) instanceof EditText) {
                 myEditTextList.add((EditText) promtsViewLayout.getChildAt(i));
@@ -40,46 +46,51 @@ public class ManageContacts {
 
 
         if(phonenumberValidation.length() < 8 || !phonenumberVal) {
-            Toast.makeText(context,
-                    "Phone number must be longer than 8 numbers\nAnd consist of only Numbers", Toast.LENGTH_LONG)
-                    .show();
+            showMessage("Phone number must be longer than 8 numbers\nAnd consist of only Numbers");
         }
 
         if(phonenumberValidation.length() >= 8) {
 
             for (int i = 0; i <= 1; i++) {
-                final boolean match = myEditTextList.get(i).getText().toString().trim().matches("[a-öA-Ö_]+$");
+                final boolean match = myEditTextList.get(i).getText().toString().trim().matches("[a-öA-Ö]+$");
+                String firstName = myEditTextList.get(0).getText().toString();
+                String lastName = myEditTextList.get(1).getText().toString();
 
                 if(!match) {
-                    Toast.makeText(context, myEditTextList.get(i).getText() + " - " + myEditTextList.get(i).getHint() + " can only contain characters",
-                            Toast.LENGTH_SHORT).show();
-                } else if(match && i == 1) {
+                    showMessage(myEditTextList.get(i).getText() + " - " + myEditTextList.get(i).getHint() + " can only contain characters");
+                    return false;
+                } else if(i == 1) {
                     if(task == null) {
-                        datasource.createTask(myEditTextList.get(0).getText().toString(), myEditTextList.get(1).getText().toString(), phonenumberValidation);
+                        datasource.createTask(firstName, lastName, phonenumberValidation);
                     } else {
-                        datasource.updateTask(task, myEditTextList.get(0).getText().toString(), myEditTextList.get(1).getText().toString(), phonenumberValidation);
+                        datasource.updateTask(task, firstName, lastName, phonenumberValidation);
                     }
+
+                    showMessage(" Firstname updated to: "
+                            + firstName
+                            + "\n Lastname updated to: "
+                            + lastName
+                            + "\n Phone number updated to: "
+                            + phonenumberValidation);
                     return true;
                 }
             }
-
-            Toast.makeText(context, " Firstname updated to: "
-                    + myEditTextList.get(0).getText().toString()
-                    + "\n Lastname updated to: "
-                    + myEditTextList.get(1).getText().toString()
-                    + "\n Phone number updated to: "
-                    + phonenumberValidation, Toast.LENGTH_LONG).show();
         }
 
         return false;
     }
 
-    public void removeContact(CRUD datasource, GetSetters task, ArrayAdapter<GetSetters> listAdapter, final Context context) {
+    void removeContact(CRUD datasource, GetSetters task, ArrayAdapter<GetSetters> listAdapter) {
         datasource.deleteTask(task);
         listAdapter.remove(task);
         listAdapter.notifyDataSetChanged();
-        Toast.makeText(context, " User Deleted ", Toast.LENGTH_LONG).show();
+        showMessage(" User Deleted ");
     }
 
+    private void showMessage(CharSequence text) {
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+    }
 }
 
