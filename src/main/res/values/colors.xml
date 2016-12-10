@@ -7,5 +7,6 @@
     <color name="foreground_material_light">#450000</color>
     <color name="holo_light_primary_dark">#ff8c8c</color>
     <color name="lightGreen">#BCCA28</color>
+    <color name="lighterGreen">#60BCCA28</color>
     <color name="darkGray">#48493F</color>
 </resources>

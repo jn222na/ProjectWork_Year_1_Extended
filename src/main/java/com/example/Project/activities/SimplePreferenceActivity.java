@@ -1,9 +1,11 @@
-package com.example.Project;
+package com.example.Project.activities;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+
+import com.example.Project.R;
 
 import java.util.List;
 

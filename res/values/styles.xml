@@ -1,6 +1,6 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="myTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+    <style name="myTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/highlighted_text_material_dark</item>
         <item name="colorAccent">@color/colorAccent</item>
@@ -10,6 +10,7 @@
         <item name="android:itemBackground">@color/skyBlue</item>
         <item name="android:textColorPrimary">@color/abc_search_url_text_pressed</item>
         <item name="android:textColorPrimaryInverse">@color/colorAccent</item>
+
     </style>
 
     <style name="PreferencesTheme">

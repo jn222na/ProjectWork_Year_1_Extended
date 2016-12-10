@@ -1,4 +1,4 @@
-package com.example.Project;
+package com.example.Project.activities;
 
 
 import android.app.Activity;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.example.DAL.CRUD;
+import com.example.Project.Main;
+import com.example.Project.activities.activities_data.ManageContacts;
+import com.example.Project.R;
 
 import static com.example.Project.R.menu.add_information;
 

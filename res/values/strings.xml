@@ -26,6 +26,8 @@
     <string name="send_to">Choose an application to send</string>
     <color name="color">#ffff5555</color>
 
+    <string name="open">Open</string>
+    <string name="close">Close</string>
     <!-- Preferences -->
     <string-array name="backgroundColors">
         <item name="1">Blue</item>
@@ -56,6 +58,7 @@
 
 
     <string name="promtName">HEJSAN</string>
+    <string name="alertDialogTitle">Select Player</string>
 
     <string-array name="playerEntries">
 

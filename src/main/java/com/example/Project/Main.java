@@ -34,15 +34,19 @@ import android.widget.ListView;
 
 import com.example.DAL.CRUD;
 import com.example.DAL.GetSetters;
+import com.example.Project.activities.AddContact;
+import com.example.Project.activities.FootballField;
+import com.example.Project.activities.SimplePreferenceActivity;
+import com.example.Project.activities.activities_data.ManageContacts;
+import com.example.Project.adapters.CustomListAdapter;
 
+import java.util.ArrayList;
 import java.util.List;
-
-import static android.content.ContentValues.TAG;
 
 /*
     Activities
-    Todo: Strip down all files
-    Todo: Name change on almost everything
+    Todo: Strip down all files, especially Main.java
+    Todo: Name changes
     Todo: Check DB connection
     Todo: Look for more dry occurances
     Res
@@ -62,7 +66,7 @@ public class Main extends Activity implements AppCompatCallback {
     private static final String PREFS_NAME = "MyPrefsFile";
     AppCompatDelegate delegate;
 
-
+    private int selectedItem;
     // Populate Method
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +75,9 @@ public class Main extends Activity implements AppCompatCallback {
         initializeToolbar(savedInstanceState);
         setupContactList();
         manageContacts = new ManageContacts(context);
+
     }
+
 
     private void setupContactList() {
         datasource = new CRUD(this);
@@ -82,10 +88,7 @@ public class Main extends Activity implements AppCompatCallback {
 
         values = initializePreferences();
         datasource.close();
-        listAdapter = new CustomListAdapter(context, R.layout.list_items, values);
-//        View header = (View)getLayoutInflater().inflate(R.layout.list_items, null);
-//        list.addHeaderView(header);
-
+        listAdapter = new CustomListAdapter(context, R.layout.listadapterview, values);
         list.setAdapter(listAdapter);
         registerForContextMenu(list);
     }
@@ -109,7 +112,6 @@ public class Main extends Activity implements AppCompatCallback {
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
 
         int i = settings.getInt("sortType", 0);
-        Log.d(TAG, "initializePreferences: " + datasource.sortFirstAndLastname(i));
         if(datasource.sortFirstAndLastname(i) == null) {
             values = datasource.getAllTasks();
         } else {
@@ -131,13 +133,13 @@ public class Main extends Activity implements AppCompatCallback {
 
         if(v.getId() == R.id.list) {
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
-            menu.setHeaderTitle(values.get(info.position).toString());
+            menu.setHeaderTitle(values.get(info.position).getPhonenumber());
+//            (info.position).toString()
             menu.add(0, 0, 0, "Delete");
             menu.add(1, 1, 1, "Update");
             menu.add(2, 2, 2, "Call");
             menu.add(3, 3, 3, "Send phonenumber");
         }
-
     }
 
     @Override
@@ -263,7 +265,7 @@ public class Main extends Activity implements AppCompatCallback {
         //Check which actionbarSelection that has been chosen
         if(id == R.id.ASCfirstname || id == R.id.DESCfirstname || id == R.id.ASCLastname || id == R.id.DESCLastname) {
             sortDatabase(item);
-            listAdapter = new CustomListAdapter(context, R.layout.list_items, values);
+            listAdapter = new CustomListAdapter(context, R.layout.listadapterview, values);
             list.setAdapter(listAdapter);
             registerForContextMenu(list);
         }
@@ -295,12 +297,11 @@ public class Main extends Activity implements AppCompatCallback {
 
         String getBg = prefs.getString("prefSetBackgroundColor", "0");
         String getTextColor = prefs.getString("prefSetTextColor", "0");
-        Log.d(TAG, "onWindowFocusChanged: " + getTextColor);
         if(!getBg.equals("0")) {
             main.setBackgroundColor(Color.parseColor("#" + getBg));
 
         }
-        if(!getTextColor.equals("0")){
+        if(!getTextColor.equals("0")) {
             setColorOfBackground(Color.parseColor("#" + getTextColor));
         }
         super.onWindowFocusChanged(hasFocus);
@@ -328,15 +329,10 @@ public class Main extends Activity implements AppCompatCallback {
         finish();
     }
 
-    //Custom toolbar
-    @Override
-    public void onSupportActionModeStarted(ActionMode mode) {
-
-    }
-
-    @Override
-    public void onSupportActionModeFinished(ActionMode mode) {
-
+    public void footballFieldIMG(View view) {
+        Intent i = new Intent(this, FootballField.class);
+        i.putExtra("Values", (ArrayList<GetSetters>) values);
+        startActivity(i);
     }
 
     @Nullable
@@ -344,5 +340,13 @@ public class Main extends Activity implements AppCompatCallback {
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }
+    //Custom toolbar
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {}
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {}
+
+
 
 }

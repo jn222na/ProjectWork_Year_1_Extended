@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
     <header
-   		android:fragment="com.example.Project.SimplePreferenceActivity$SimplePreferenceFragment"
+   		android:fragment="com.example.Project.activities.SimplePreferenceActivity$SimplePreferenceFragment"
    		android:title="Colors"
    		android:summary="Change some colors" 
    />

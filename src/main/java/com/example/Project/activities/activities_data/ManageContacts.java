@@ -1,4 +1,4 @@
-package com.example.Project;
+package com.example.Project.activities.activities_data;
 
 import android.content.Context;
 import android.view.View;
@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import com.example.DAL.CRUD;
 import com.example.DAL.GetSetters;
+import com.example.Project.R;
 
 import java.util.ArrayList;
 
@@ -17,15 +18,15 @@ import java.util.ArrayList;
  * Created by Joakim on 09/11/2016.
  */
 
-class ManageContacts {
+public class ManageContacts {
 
     private Context context;
 
-    ManageContacts(Context context) {
+    public ManageContacts(Context context) {
         this.context = context;
     }
 
-    boolean createOrUpdateContact(CRUD datasource, GetSetters task, View view) {
+    public boolean createOrUpdateContact(CRUD datasource, GetSetters task, View view) {
 
         //Get all layouts in Listheader.xml
         final ArrayList<TextView> myEditTextList = new ArrayList<TextView>();
@@ -80,7 +81,7 @@ class ManageContacts {
         return false;
     }
 
-    void removeContact(CRUD datasource, GetSetters task, ArrayAdapter<GetSetters> listAdapter) {
+    public void removeContact(CRUD datasource, GetSetters task, ArrayAdapter<GetSetters> listAdapter) {
         datasource.deleteTask(task);
         listAdapter.remove(task);
         listAdapter.notifyDataSetChanged();

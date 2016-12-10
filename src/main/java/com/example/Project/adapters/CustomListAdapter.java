@@ -1,4 +1,4 @@
-package com.example.Project;
+package com.example.Project.adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -10,6 +10,7 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.DAL.GetSetters;
+import com.example.Project.R;
 
 import java.util.List;
 
@@ -18,14 +19,14 @@ import java.util.List;
  * Created by Joakim on 16/11/2016.
  */
 
-class CustomListAdapter extends ArrayAdapter<GetSetters> {
+public class CustomListAdapter extends ArrayAdapter<GetSetters> {
 
     private Context context;
     private int layoutResourceId;
     private List<GetSetters> data = null;
 
 
-    CustomListAdapter(Context context, int layoutResourceId, List<GetSetters> objects) {
+    public CustomListAdapter(Context context, int layoutResourceId, List<GetSetters> objects) {
         super(context, layoutResourceId, objects);
         this.context = context;
         this.layoutResourceId = layoutResourceId;
@@ -41,17 +42,18 @@ class CustomListAdapter extends ArrayAdapter<GetSetters> {
         if(row == null) {
             LayoutInflater inflater = ((Activity) context).getLayoutInflater();
             row = inflater.inflate(layoutResourceId, parent, false);
-
             holder = new GetSettersHolder();
+
             holder.firstname = (TextView) row.findViewById(R.id.firstname_ListItem);
             holder.lastname = (TextView) row.findViewById(R.id.lastname_ListItem);
-//            holder.phonenumber = (TextView) row.findViewById(R.id.phonenumber_ListItem);
+
+//          holder.phonenumber = (TextView) row.findViewById(R.id.phonenumber_ListItem);
 
             row.setTag(holder);
         }
 
         holder = (GetSettersHolder) row.getTag();
-        setHolder(position,holder);
+        setHolder(position, holder);
 
         return row;
     }
@@ -63,13 +65,18 @@ class CustomListAdapter extends ArrayAdapter<GetSetters> {
                 TableRow.LayoutParams.WRAP_CONTENT, 1.0f);
 
         GetSetters in = (GetSetters) data.get(position);
-        setHolderDesign(in.getFirstname(), holder.firstname,tlparams);
-        setHolderDesign(in.getLastname(), holder.lastname,tlparams);
+
+        setHolderDesign(in.getFirstname(), holder.firstname, tlparams);
+        setHolderDesign(in.getLastname(), holder.lastname, tlparams);
+
         //TODO: Phonenumber?
     }
-    private void setHolderDesign(String textOfField, TextView holderDesign, TableRow.LayoutParams tlparams){
+
+    private void setHolderDesign(String textOfField, TextView holderDesign, TableRow.LayoutParams tlparams) {
+
         holderDesign.setText(textOfField);
         holderDesign.setLayoutParams(tlparams);
+
     }
 //    private int convertPixelsToDp(int value) {
 //        int NOSE_POSITION_DP = 150;
@@ -83,6 +90,8 @@ class CustomListAdapter extends ArrayAdapter<GetSetters> {
         TextView firstname;
         TextView lastname;
         TextView phonenumber;
+        public TextView firstnamespinner;
+        public TextView lastnamespinner;
     }
 }
 

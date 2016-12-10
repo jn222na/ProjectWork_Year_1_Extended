@@ -1,0 +1,181 @@
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/drawerLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+
+    <!-- As the main content view, the view below consumes the entire
+           space available using match_parent in both dimensions. -->
+    <FrameLayout
+        android:id="@+id/content_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <!-- The navigation drawer list-->
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nvView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white"
+        app:menu="@menu/navigation_menu" />
+
+
+    <RelativeLayout
+
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/footballFieldView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:id="@+id/footballFieldLarge"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:src="@drawable/soccerfield"/>
+
+
+        <Button
+            android:id="@+id/ButtonSelectPlayer5"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="60dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+        <!--Defenders-->
+        <Button
+            android:id="@+id/ButtonSelectPlayer"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="120dip"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+        <!--Defenders-->
+        <Button
+            android:id="@+id/ButtonSelectPlayer2"
+
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="120dip"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+        <!--Middle-->
+
+        <Button
+            android:id="@+id/ButtonSelectPlayer4"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="330dip"
+            android:layout_marginLeft="20dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+
+        <Button
+            android:id="@+id/ButtonSelectPlayer8"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="215dip"
+            android:layout_marginLeft="130dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+
+
+        <Button
+            android:id="@+id/ButtonSelectPlayer3"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="330dip"
+            android:layout_marginRight="20dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+
+        <!--Middle-->
+
+        <!--Offensive-->
+        <Button
+            android:id="@+id/ButtonSelectPlayer6"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dip"
+            android:layout_marginTop="125dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+
+        <Button
+            android:id="@+id/ButtonSelectPlayer7"
+            android:layout_width="140dip"
+            android:layout_height="60dip"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dip"
+            android:layout_marginTop="125dip"
+            android:background="@drawable/round_button"
+            android:entries="@array/playerEntries"
+            android:prompt="@string/promtName"
+            android:textSize="20sp">
+        </Button>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </RelativeLayout>
+    </RelativeLayout>
+</android.support.v4.widget.DrawerLayout>
+
+

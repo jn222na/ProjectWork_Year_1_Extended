@@ -1,60 +1,70 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:id="@+id/main"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <android.support.v7.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/toolbar"
+    <LinearLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:background="@color/lightGreen"
-        android:minHeight="250dp"
-        android:theme="@style/myTheme">
-
-
-        <View android:layout_width="1dp"
-              android:layout_height="50dp"
-              android:layout_gravity="center|end"
-              android:background="#80FFFFFF"/>
-
-        <ImageView
-            android:onClick="addNew"
-            android:id="@+id/addNewMember2"
-            android:clickable="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center|end"
-            android:layout_marginEnd="20dp"
-            android:src="@drawable/add_contact_icon_nobg"
-            android:layout_marginRight="20dp"/>
-
-        <!--<ImageView-->
-            <!--android:id="@+id/sortBtn"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:clickable="true"-->
-            <!--android:onClick="sortList"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_gravity="center|left"-->
-            <!--android:layout_marginLeft="20dp"-->
-            <!--android:src="@drawable/ic_launcher"/>-->
-
-    </android.support.v7.widget.Toolbar>
-
-    <View android:layout_width="match_parent"
-          android:layout_height="5dp"
-          android:background="@drawable/toolbar_dropshadow"/>
-
-
-    <ListView
-        android:id="@+id/list"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:divider="#80000000"
-        android:dividerHeight="2dp"
+        android:layout_height="match_parent"
         android:orientation="vertical">
-    </ListView>
 
 
-</LinearLayout>
+        <android.support.v7.widget.Toolbar
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@color/lightGreen"
+            android:minHeight="250dp"
+            android:theme="@style/myTheme">
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center|end"
+                android:background="#80FFFFFF"/>
+
+            <ImageView
+                android:id="@+id/addNewMember2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_marginEnd="20dp"
+                android:layout_marginRight="20dp"
+                android:clickable="true"
+                android:onClick="addNew"
+                android:src="@drawable/add_contact_icon_nobg"/>
+
+
+            <ImageView
+                android:id="@+id/footballFieldICO"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/addNewMember2"
+                android:layout_gravity="center|start"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:clickable="true"
+                android:onClick="footballFieldIMG"
+                android:src="@drawable/soccerfield"/>
+
+        </android.support.v7.widget.Toolbar>
+
+        <View
+            android:id="@+id/shadow"
+            android:layout_width="match_parent"
+            android:layout_height="5dp"
+            android:background="@drawable/toolbar_dropshadow"/>
+
+
+        <ListView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#80000000"
+            android:dividerHeight="2dp"
+            android:orientation="vertical">
+        </ListView>
+    </LinearLayout>
+</RelativeLayout>
